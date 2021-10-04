@@ -4,6 +4,11 @@
   border: 1px solid #282c34;
 } */
 
+*{
+  box-sizing: border-box;
+  margin: auto;
+}
+
 .App {
   text-align: center;
 }
@@ -43,13 +48,21 @@
   }
 }
 
-/* nav  */
+/* NAV AND FOOTER */
 
-.navColor {
+.navColor, .footerColor {
   background-color: #61DAFB;
+  text-shadow: 2px 2px 4px #282c34;
 }
 
-.fa-react {
+.fa-react, .fa-bitbucket, .fa-wordpress {
   color: #fff;
-  font-size: 3rem;
+  font-size: 2rem;
+}
+
+
+/* CARD */
+
+.width {
+  width: 14rem;
 }
