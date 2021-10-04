@@ -5,33 +5,33 @@ import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 //COMPONENTS
 import Navbar from './components/NavBar';
 import Footer from './components/Footer';
-import PostCard from './components/PostCard';
+import Post from './components/Post';
 import HomePosts from './components/Posts';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <div className="navBarContainer">
         <Navbar />
       </div>
-      <BrowserRouter>
-        <HomePosts />
 
         <Switch>
-          <Route exact path="">
-
+          <Route exact path="/">
+            <HomePosts />
           </Route>
-          <Route path="">
-
+          <Route path="/aboutUs">
+            <AboutUs />
           </Route>
           <Route path="">
 
           </Route>
         </Switch>
-      </BrowserRouter>
       <div className="footerContainer">
         <Footer />
       </div>
+      </BrowserRouter>
     </div>
   );
 }

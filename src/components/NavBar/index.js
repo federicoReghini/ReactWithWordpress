@@ -1,22 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
 
   render() {
     return (
     <div className="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light navColor">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fab fa-react"></i></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-light navColor">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="/"><i className="fab fa-react"></i></Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">About us</a>
-                <a class="nav-link" href="#">React</a>
-                <a class="nav-link" href="#">WordPress</a>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div className="navbar-nav">
+                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link" to="/aboutUs">About us</Link>
+                <Link className="nav-link" to="/">React</Link>
+                <Link className="nav-link" to="/">WordPress</Link>
               </div>
             </div>
           </div>
