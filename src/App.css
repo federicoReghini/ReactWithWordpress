@@ -147,7 +147,7 @@
 
 /* NEON EFFECT */
 
-h2 {
+.h2 {
   position: relative;
   top: 20%;
   font-size: 4rem;
@@ -160,7 +160,7 @@ h2 {
   animation: neon 5s linear infinite;
 }
 
-h2::before {
+.h2::before {
   content: 'Thank You';
   position: absolute;
   /* right: 45%; */

@@ -8,20 +8,11 @@ class Categories extends React.Component {
 
   render() {
     const category = this.props.data.name;
-
-    const hasCategory = () => {
-      if (category == 'React') {
-        <div>
-          {this.props.posts}
-        </div>
-      } else {
-        <Link to={`/${category}`}>{category}</Link>
-      }
-    }
+    const id = this.props.data.id;
 
     return (
       <div>
-        <Link className="nav-link" to={`/${category}`} onClick={this.hasCategory}>{category}</Link>
+        <Link className="nav-link" to={`/${category}/${id}`}>{category}</Link>
 
       </div>
     )

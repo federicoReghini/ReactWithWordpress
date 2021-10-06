@@ -9,7 +9,7 @@ class AboutUs extends React.Component {
     // console.log(this.props.content);
     return (
       <div>
-        <p className="text-center">{this.props.content}</p>
+        <p className="text-center" dangerouslySetInnerHTML={{ __html: this.props.content}}></p>
       </div>
     )
   }

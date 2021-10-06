@@ -13,14 +13,16 @@ class NavBar extends React.Component {
     }
   }
 
-  componentDidMount() {
-    axios.get('http://localhost/bedrock/web/wp-json/wp/v2/categories')
+  async componentDidMount() {
+    await axios.get('http://localhost/bedrock/web/wp-json/wp/v2/categories')
      .then(res => {
-      const categories = res.data;
+      const allCategories = res.data;
+      const categories = allCategories.filter(category => category.name != "Uncategorised");
+  
       this.setState({ categories });
       // console.log(this.state.categories.name);
      })
-     axios.get('http://localhost/bedrock/web/wp-json/wp/v2/posts')
+    await axios.get('http://localhost/bedrock/web/wp-json/wp/v2/posts')
      .then(res => {
       const posts = res.data;
       // console.log(posts);

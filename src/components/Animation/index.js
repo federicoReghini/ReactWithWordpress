@@ -11,7 +11,7 @@ class Css extends React.Component {
             <audio autoPlay>
               <source src="/public/assets/audio/Daft Punk - Around the world (Official Audio).mp3" type="audio/mpeg"/>
             </audio>
-            <h2>Thank You</h2>
+            <h2 className="h2">Thank You</h2>
             <div className="box">
               <div>
                 <span></span>

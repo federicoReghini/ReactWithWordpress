@@ -9,6 +9,7 @@ import Post from './components/Post';
 import HomePosts from './components/Posts';
 import Animation from './components/Animation';
 import Page from './components/Page';
+import ReactOrWp from './components/ReactorWp';
 
 function App() {
   return (
@@ -27,6 +28,12 @@ function App() {
           </Route>
           <Route path="/AboutUs">
             <Page />
+          </Route>
+          <Route exact path="/posts/:id">
+            <Post />
+          </Route>
+          <Route exact path="/:category">
+            <ReactOrWp />
           </Route>
         </Switch>
       <div className="footerContainer">
