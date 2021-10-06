@@ -32,7 +32,7 @@ class HomePosts extends React.Component {
     return (
       <div className="postsContainer min-vh-100">
         <div className="d-flex flex-column justify-content-sm-center">
-            {postsList}
+            { postsList }
           </div>
       </div>
     )

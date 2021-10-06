@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Post from './components/Post';
 import HomePosts from './components/Posts';
 import Animation from './components/Animation';
-import AboutUs from './components/AboutUs';
+import Page from './components/Page';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
             <Animation />
           </Route>
           <Route path="/AboutUs">
-            <AboutUs />
+            <Page />
           </Route>
         </Switch>
       <div className="footerContainer">

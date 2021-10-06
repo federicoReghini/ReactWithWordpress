@@ -8,7 +8,8 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = {
-      categories: []
+      categories: [],
+      posts: []
     }
   }
 
@@ -17,12 +18,18 @@ class NavBar extends React.Component {
      .then(res => {
       const categories = res.data;
       this.setState({ categories });
-      // console.log(categories);
+      // console.log(this.state.categories.name);
+     })
+     axios.get('http://localhost/bedrock/web/wp-json/wp/v2/posts')
+     .then(res => {
+      const posts = res.data;
+      // console.log(posts);
+      this.setState({ posts });
      })
   }
 
   render() {
-    const categoriesList = this.state.categories.map(category => <Categories key={category.id} categorie={category.name.rendered} />) 
+    const categoriesList = this.state.categories.map(category => <Categories key={category.id} data={category} category={category.name.rendered} />) 
     // console.log(categoriesList);
     return (
     <div className="container-fluid">
@@ -38,7 +45,7 @@ class NavBar extends React.Component {
                 <Link className="nav-link" to="/aboutUs">About us</Link>
                 {/* <Link className="nav-link" to="/">React</Link>
                 <Link className="nav-link" to="/">WordPress</Link> */}
-                {/* { categoriesList } */}
+                { categoriesList }
               </div>
             </div>
           </div>
