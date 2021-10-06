@@ -21,12 +21,19 @@ class HomePosts extends React.Component {
       });
   }
 
+  handleReadMore = () => {
+
+  }
+
   render() {
-    const postsList = this.state.posts.map(post => <Blog key={post.id} slug={post.slug} onClick={() => this.handleReadMore} title={post.title.rendered} content={post.content.rendered.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '')} />);
-    
+    // console.log(this.state.posts.id);
+    const postsList = this.state.posts.map(post => <Blog key={post.id} post={post} slug={post.slug} onClick={() => this.handleReadMore} title={post.title.rendered} content={post.content.rendered.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '')} />);
+
     return (
       <div className="postsContainer min-vh-100">
-        { postsList }
+        <div className="d-flex flex-column justify-content-sm-center">
+            {postsList}
+          </div>
       </div>
     )
   }

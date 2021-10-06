@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Categories from '../Categories';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -21,11 +22,11 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const categoriesList = this.state.categories.map(category => <NavBar key={category.id} categorie={category.name.rendered} />) 
+    const categoriesList = this.state.categories.map(category => <Categories key={category.id} categorie={category.name.rendered} />) 
     // console.log(categoriesList);
     return (
     <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-light navColor">
+        <nav className="navbar navbar-expand-lg navbar-light navColor shadow">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/css"><i className="fab fa-react"></i></Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

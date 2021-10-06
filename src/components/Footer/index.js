@@ -5,7 +5,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <footer className="d-flex flex-wrap justify-content-between align-items-center p-3 border-top footerColor fixed-bottom">
+        <footer className="d-flex flex-wrap justify-content-between align-items-center p-3 border-top footerColor fixed-bottom shadow">
           <div className="col-md-4 d-flex align-items-center">
             <span className="text-muted">© 2021 By Federico Reghini</span>
           </div>
