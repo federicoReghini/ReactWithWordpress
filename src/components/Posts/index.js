@@ -2,41 +2,34 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
- 
+import Blog from '../Blog';
+
 class HomePosts extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      posts: []
     }
+  }
 
-    componentDidMount() {
-        axios.get('')
-         .then(res => {
+  componentDidMount() {
+    axios.get('http://localhost/bedrock/web/wp-json/wp/v2/posts')
+      .then(res => {
+        const posts = res.data;
+        this.setState({ posts });
+      });
+  }
 
-         });
-    }
-
-    render() {
-
-        return (
-            <div className="PostsContainer">
-                <div className="container">
-                    <div className="row">
-                        <div className="column mt-4">
-                            <div className="card width">
-                                <img src="/public/img/post_x_categoria.jpg" className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <Link to="/" className="btn btn-primary">Read more</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    const postsList = this.state.posts.map(post => <Blog key={post.id} slug={post.slug} onClick={() => this.handleReadMore} title={post.title.rendered} content={post.content.rendered.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, '')} />);
+    
+    return (
+      <div className="postsContainer min-vh-100">
+        { postsList }
+      </div>
+    )
+  }
 }
 
 export default HomePosts;
