@@ -12,8 +12,7 @@ class Categories extends React.Component {
 
     return (
       <div>
-        <Link className="nav-link" to={`/${category}/${id}`}>{category}</Link>
-
+        <Link className="nav-link" to={`/${id}/${category}`}>{category}</Link>
       </div>
     )
   }

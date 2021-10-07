@@ -17,7 +17,6 @@ class Page extends React.Component {
     .then(res => {
       const pages = res.data;
       this.setState({ pages })
-      console.log(pages);
     })
   }
   

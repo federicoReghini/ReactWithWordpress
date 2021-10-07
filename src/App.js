@@ -32,7 +32,7 @@ function App() {
           <Route exact path="/posts/:id">
             <Post />
           </Route>
-          <Route exact path="/:category">
+          <Route  path="/:categories/:name">
             <ReactOrWp />
           </Route>
         </Switch>

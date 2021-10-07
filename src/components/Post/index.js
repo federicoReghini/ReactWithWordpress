@@ -12,7 +12,7 @@ class Post extends React.Component {
     super(props);
 
     this.state = {
-      allPost: []
+      post: []
     }
   }
 
@@ -20,16 +20,13 @@ class Post extends React.Component {
     const postId = this.props.match.params.id;
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts/${postId}`)
     .then(res => {
-      const allPost = res.data;
-      // console.log(allPost.id);
-      // console.log(allPost);
-      this.setState({ allPost })
+      const post = res.data;
+      this.setState({ post })
     })
   }
   
   render() {
-    const { id, slug, content } = this.state.allPost;
-    console.log(this.state.allPost.content);
+    const { id, slug, content } = this.state.post;
     return (
       <div>
         <PostId key={ id } title={ slug } content={ content?.rendered } />

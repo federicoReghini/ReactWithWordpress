@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 class PostId extends React.Component {
   constructor(props) {
@@ -7,7 +6,6 @@ class PostId extends React.Component {
   }
 
   render() {
-    // console.log(this.props.post.id);
     return (
       <div className="container my-3">
         <div className="bg-info p-5 rounded shadow">
