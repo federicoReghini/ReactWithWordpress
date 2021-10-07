@@ -9,7 +9,7 @@ class Css extends React.Component {
         <div className="row">
           <div className="column">
             <audio autoPlay>
-              <source src="/public/assets/audio/Daft Punk - Around the world (Official Audio).mp3" type="audio/mpeg"/>
+              <source src="/public/assets/audio/Daft Punk - Around the world (Official Audio).mp3" type="audio/mpeg" />
             </audio>
             <h2 className="h2">Thank You</h2>
             <div className="box">

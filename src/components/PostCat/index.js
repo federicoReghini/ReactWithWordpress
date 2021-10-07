@@ -1,6 +1,5 @@
-import axios from 'axios';
-import React from "react";
 import { Link } from 'react-router-dom';
+import React from "react";
 import Logo from '../../img/reactWp.png';
 
 class PostCat extends React.Component {
@@ -10,7 +9,7 @@ class PostCat extends React.Component {
   }
 
   render() {
-    // console.log(this.props.id);
+    const postCatId = this.props.PostCat.id; //? having issue with id
     return (
       <div className="container my-3">
         <div className="bg-info p-5 rounded shadow">
@@ -21,7 +20,7 @@ class PostCat extends React.Component {
               <p className="card-text" dangerouslySetInnerHTML={{ __html: this.props.content }}></p>
             </div>
             <div className="card-footer">
-              <Link to={`/posts/${this.props.id}`} className="btn btn-primary">Read more</Link>
+              <Link to={`/posts/`} className="btn btn-primary">Read more</Link>
             </div>
           </div>
         </div>

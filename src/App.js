@@ -9,7 +9,7 @@ import Post from './components/Post';
 import HomePosts from './components/Posts';
 import Animation from './components/Animation';
 import Page from './components/Page';
-import ReactOrWp from './components/ReactorWp';
+import ReactOrWp from './components/ReactOrWp';
 import NotFound from './components/NotFound';
 import PostCat from './components/PostCat';
 
@@ -35,7 +35,7 @@ function App() {
             <Post />
             {/* <PostCat /> */}
           </Route>
-          <Route  path="/:categories/:name">
+          <Route exact path="/categories/:categories/name/:name">
             <ReactOrWp />
           </Route>
           <Route path='*'>

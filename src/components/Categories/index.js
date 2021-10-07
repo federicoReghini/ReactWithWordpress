@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from 'react-router-dom';
+import React from "react";
 
 class Categories extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Categories extends React.Component {
 
     return (
       <div>
-        <Link className="nav-link" to={`/${id}/${category}`}>{category}</Link>
+        <Link className="nav-link" to={`/categories/${id}/name/${category}`}>{category}</Link>
       </div>
     )
   }

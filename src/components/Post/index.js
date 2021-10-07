@@ -19,18 +19,19 @@ class Post extends React.Component {
   async componentDidMount() {
     const postId = this.props.match.params.id;
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts/${postId}`)
-    .then(res => {
-      const post = res.data;
-      this.setState({ post })
-    })
+      .then(res => {
+        const post = res.data;
+        this.setState({ post })
+      })
   }
-  
+
   render() {
     const { id, slug, content } = this.state.post;
+
     return (
       <div>
-        <PostId key={ id } title={ slug } content={ content?.rendered } />
-      </div>     
+        <PostId key={id} title={slug} content={content?.rendered} />
+      </div>
     )
   }
 }

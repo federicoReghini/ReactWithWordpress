@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from 'react-router-dom';
 import Logo from '../../img/reactWp.png';
+import React from "react";
 
 
 class Blog extends React.Component {
@@ -9,7 +9,7 @@ class Blog extends React.Component {
   }
 
   render() {
-    // console.log(this.props.post.id);
+    
     return (
       <div className="container my-3">
         <div className="bg-info p-5 rounded shadow">
