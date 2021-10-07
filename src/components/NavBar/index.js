@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Categories from '../Categories';
+import Pages from '../Pages';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class NavBar extends React.Component {
 
     this.state = {
       categories: [],
-      posts: []
+      posts: [],
+      pages: []
     }
   }
 
@@ -22,17 +24,26 @@ class NavBar extends React.Component {
       this.setState({ categories });
       // console.log(this.state.categories.name);
      })
+
     await axios.get('http://localhost/bedrock/web/wp-json/wp/v2/posts')
      .then(res => {
       const posts = res.data;
       // console.log(posts);
       this.setState({ posts });
      })
+     
+     await axios.get('http://localhost/bedrock/web/wp-json/wp/v2/pages')
+      .then(res => {
+        const pages = res.data;
+        this.setState({ pages });
+      })
   }
 
   render() {
     const categoriesList = this.state.categories.map(category => <Categories key={category.id} data={category} category={category.name.rendered} />) 
-    // console.log(categoriesList);
+
+    const pagesList = this.state.pages.map(page => <Pages key={page.id} data={page} slug={page.slug} />)
+
     return (
     <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar-light navColor shadow">
@@ -44,7 +55,8 @@ class NavBar extends React.Component {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                <Link className="nav-link" to="/aboutUs">About us</Link>
+                {/* <Link className="nav-link" to="/aboutUs">About us</Link> */}
+                { pagesList }
                 {/* <Link className="nav-link" to="/">React</Link>
                 <Link className="nav-link" to="/">WordPress</Link> */}
                 { categoriesList }

@@ -10,6 +10,8 @@ import HomePosts from './components/Posts';
 import Animation from './components/Animation';
 import Page from './components/Page';
 import ReactOrWp from './components/ReactorWp';
+import NotFound from './components/NotFound';
+import PostCat from './components/PostCat';
 
 function App() {
   return (
@@ -31,9 +33,13 @@ function App() {
           </Route>
           <Route exact path="/posts/:id">
             <Post />
+            {/* <PostCat /> */}
           </Route>
           <Route  path="/:categories/:name">
             <ReactOrWp />
+          </Route>
+          <Route path='*'>
+            <NotFound />
           </Route>
         </Switch>
       <div className="footerContainer">

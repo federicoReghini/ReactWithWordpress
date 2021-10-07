@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PostCat from '../PostCat';
+import Post from '../Post';
+
 
 class ReactOrWp extends React.Component {
   constructor(props) {
@@ -9,26 +11,35 @@ class ReactOrWp extends React.Component {
 
     this.state = {
       postByCategory: [],
-      // categories: []
     }
   }
 
   async componentDidMount() {
     const paramsCat = this.props.match.params.categories;
-    // const catName = this.props.match.params.name;
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts?categories=${paramsCat}`)
-     .then(res => {
-      const postByCategory = res.data;   
-      this.setState({ postByCategory })
-     })
+      .then(res => {
+        const postByCategory = res.data;
+        this.setState({ postByCategory })
+      })
+  }
+
+  async componentDidUpdate() {
+    const paramsUpdate = this.props.match.params.categories;
+    await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts?categories=${paramsUpdate}`)
+      .then(res => {
+        const postByCategory = res.data;
+        this.setState({ postByCategory })
+      })
   }
 
   render() {
-    console.log(this.state.postByCategory);
-    // console.log(postCat);
-    const isReact = this.state.postByCategory.map(postcat => <PostCat key={postcat.id} dangerouslySetInnerHTML={{ __html: this.state.postByCategory.content}} />)
+    // console.log(this.state);
+    const isReact = this.state.postByCategory.map(postcat => <PostCat key={postcat.id} slug={postcat.slug} title={postcat.title.rendered} content={postcat.excerpt.rendered} />);
     return (
-      <div>{ isReact }</div>
+      <div>
+        <h3 className="catName shadow p-2 mt-2">{this.props.match.params.name}</h3>
+        <div>{isReact}</div>
+      </div>
     )
   }
 }
