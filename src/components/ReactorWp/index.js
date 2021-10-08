@@ -12,6 +12,7 @@ class ReactOrWp extends React.Component {
 
     this.state = {
       postByCategory: [],
+      isTrue: false
     }
   }
 
@@ -21,26 +22,31 @@ class ReactOrWp extends React.Component {
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts?categories=${paramsCat}`)
       .then(res => {
         const postByCategory = res.data;
-        this.setState({ postByCategory })
+        this.setState({
+          postByCategory,
+          isTrue: true
+        })
       })
   }
 
   async componentDidUpdate(previousProps) {
     const paramsUpdate = this.props.match.params.categories;
-    const params = 2;
     const prevProps = previousProps.match.params.categories;
+
     if(prevProps !== paramsUpdate) {
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts?categories=${paramsUpdate}`)
       .then(res => {
         const postCategory = res.data;
         this.setState({
           postByCategory: postCategory,
+          isTrue: false
         });
       })
     }
   }
 
   render() {
+    console.log('not solved');
     const isReact = this.state.postByCategory.map(postcat => <PostCat key={postcat.id} PostCat={postcat} slug={postcat.slug} title={postcat.title.rendered} content={postcat.excerpt.rendered} />);
     return (
       <div>

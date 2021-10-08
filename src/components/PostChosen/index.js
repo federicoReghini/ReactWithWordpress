@@ -8,11 +8,11 @@ class PostId extends React.Component {
   }
 
   render() {
+
     return (
       <div className="container my-3">
         <div className="bg-info p-5 rounded shadow">
           <div className="card w-100">
-            <img src={Logo} className="image" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{this.props.title}</h5>
               <p className="card-text" dangerouslySetInnerHTML={{ __html: this.props.content }}></p>

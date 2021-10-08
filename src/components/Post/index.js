@@ -30,7 +30,7 @@ class Post extends React.Component {
 
     return (
       <div>
-        <PostId key={id} title={slug} content={content?.rendered} />
+        <PostId key={id} title={slug} post={this.state.post} content={content?.rendered} />
       </div>
     )
   }
