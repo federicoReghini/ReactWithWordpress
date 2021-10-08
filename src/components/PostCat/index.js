@@ -9,7 +9,7 @@ class PostCat extends React.Component {
   }
 
   render() {
-    const postCatId = this.props.PostCat.id; //? having issue with id
+    const postCatId = this.props.PostCat.id;
     return (
       <div className="container my-3">
         <div className="bg-info p-5 rounded shadow">
@@ -20,7 +20,7 @@ class PostCat extends React.Component {
               <p className="card-text" dangerouslySetInnerHTML={{ __html: this.props.content }}></p>
             </div>
             <div className="card-footer">
-              <Link to={`/posts/`} className="btn btn-primary">Read more</Link>
+              <Link to={`/posts/${postCatId}`} className="btn btn-primary">Read more</Link>
             </div>
           </div>
         </div>

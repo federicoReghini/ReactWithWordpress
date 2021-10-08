@@ -50,7 +50,7 @@ class NavBar extends React.Component {
         <nav className="navbar navbar-expand-lg navbar-light navColor shadow">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/css"><i className="fab fa-react"></i></Link>
-            <div>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                 {pagesList}

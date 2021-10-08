@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //COMPONENTS
 import Navbar from './components/NavBar';
@@ -11,7 +11,6 @@ import Animation from './components/Animation';
 import Page from './components/Page';
 import ReactOrWp from './components/ReactOrWp';
 import NotFound from './components/NotFound';
-import PostCat from './components/PostCat';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
       <div className="navBarContainer">
         <Navbar />
       </div>
-
         <Switch>
           <Route exact path="/">
             <HomePosts />
@@ -33,7 +31,6 @@ function App() {
           </Route>
           <Route exact path="/posts/:id">
             <Post />
-            {/* <PostCat /> */}
           </Route>
           <Route exact path="/categories/:categories/name/:name">
             <ReactOrWp />

@@ -17,6 +17,7 @@ class ReactOrWp extends React.Component {
 
   async componentDidMount() {
     const paramsCat = this.props.match.params.categories;
+
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts?categories=${paramsCat}`)
       .then(res => {
         const postByCategory = res.data;
@@ -24,15 +25,19 @@ class ReactOrWp extends React.Component {
       })
   }
 
-  async componentDidUpdate() {
+  async componentDidUpdate(previousProps) {
     const paramsUpdate = this.props.match.params.categories;
+    const params = 2;
+    const prevProps = previousProps.match.params.categories;
+    if(prevProps !== paramsUpdate) {
     await axios.get(`http://localhost/bedrock/web/wp-json/wp/v2/posts?categories=${paramsUpdate}`)
       .then(res => {
         const postCategory = res.data;
-        if (paramsUpdate) {
-          this.setState({ postByCategory: postCategory })
-        }
+        this.setState({
+          postByCategory: postCategory,
+        });
       })
+    }
   }
 
   render() {
