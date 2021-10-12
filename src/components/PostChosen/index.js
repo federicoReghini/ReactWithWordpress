@@ -1,6 +1,4 @@
 import React from "react";
-import Logo from '../../img/reactWp.png';
-
 
 class PostId extends React.Component {
   constructor(props) {

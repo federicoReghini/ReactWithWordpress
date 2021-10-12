@@ -7,11 +7,12 @@ class Pages extends React.Component {
   }
 
   render() {
-    const page = this.props.data.title.rendered;
+    const idPage = this.props.page.id;
+    const page = this.props.page.title.rendered;
 
     return (
       <div>
-        <Link className="nav-link" to={`/aboutUs`}>{page}</Link>
+        <Link className="nav-link" to={`/pages/${idPage}`}>{page}</Link>
       </div>
     )
   }

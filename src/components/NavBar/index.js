@@ -43,7 +43,7 @@ class NavBar extends React.Component {
   render() {
     const categoriesList = this.state.categories.map(category => <Categories key={category.id} data={category} category={category.name.rendered} />)
 
-    const pagesList = this.state.pages.map(page => <Pages key={page.id} data={page} slug={page.slug} />)
+    const pagesList = this.state.pages.map(page => <Pages key={page.id} page={page} slug={page.slug} />)
 
     return (
       <div className="container-fluid">

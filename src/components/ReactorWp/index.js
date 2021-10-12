@@ -46,7 +46,6 @@ class ReactOrWp extends React.Component {
   }
 
   render() {
-    console.log('not solved');
     const isReact = this.state.postByCategory.map(postcat => <PostCat key={postcat.id} PostCat={postcat} slug={postcat.slug} title={postcat.title.rendered} content={postcat.excerpt.rendered} />);
     return (
       <div>

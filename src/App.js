@@ -26,7 +26,7 @@ function App() {
           <Route path="/css">
             <Animation />
           </Route>
-          <Route path="/AboutUs">
+          <Route exact path="/pages/:id">
             <Page />
           </Route>
           <Route exact path="/posts/:id">
