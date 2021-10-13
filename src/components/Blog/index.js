@@ -9,8 +9,10 @@ class Blog extends React.Component {
   }
 
   render() {
+
     const image =
     this.props.post.better_featured_image.source_url;
+    const date = this.props.post.date;
 
     return (
       <div className="container my-3">
@@ -23,7 +25,7 @@ class Blog extends React.Component {
                 <p className="card-text" dangerouslySetInnerHTML={{ __html: this.props.content }}></p>
               </div>
             </div>
-            <div className="card-footer">
+            <div className="card-footer d-flex justify-content-around align-items-center">
               <Link to={`/posts/${this.props.post.id}`} className="btn btn-primary">Read more</Link>
             </div>
           </div>
